@@ -12,10 +12,13 @@ import java.text.DecimalFormat
  * represented exactly.
  * @return Formatted string representation.
  */
-fun Double?.format(pattern: String = "0.##", roundingMode: RoundingMode? = null): String {
+fun Double?.format(
+    pattern: String = "0.##",
+    roundingMode: RoundingMode = RoundingMode.HALF_EVEN
+): String {
     if (this == null) return "0"
     return DecimalFormat(pattern).apply {
-        if (roundingMode != null) this.roundingMode = roundingMode
+        this.roundingMode = roundingMode
     }
         .format(this)
 }
@@ -28,10 +31,13 @@ fun Double?.format(pattern: String = "0.##", roundingMode: RoundingMode? = null)
  * represented exactly.
  * @return Formatted string representation.
  */
-fun Float?.format(pattern: String = "0.##", roundingMode: RoundingMode? = null): String {
+fun Float?.format(
+    pattern: String = "0.##",
+    roundingMode: RoundingMode = RoundingMode.HALF_EVEN
+): String {
     if (this == null) return "0"
     return DecimalFormat(pattern).apply {
-        if (roundingMode != null) this.roundingMode = roundingMode
+        this.roundingMode = roundingMode
     }
         .format(this)
 }
@@ -45,6 +51,27 @@ fun Float?.format(pattern: String = "0.##", roundingMode: RoundingMode? = null):
  * @return
  */
 val Long.shortenString: String
+    get() {
+        var value = this
+        val arr = arrayOf("", "K", "M", "B", "T", "P", "E")
+        var index = 0
+        while (value / THOUSAND >= 1) {
+            value /= THOUSAND
+            index++
+        }
+        val decimalFormat = DecimalFormat("#.##")
+        return String.format("%s %s", decimalFormat.format(value), arr[index])
+    }
+
+/**
+ * Format number into Short values
+ *
+ * eg: 1000 -> 1k
+ *      1000000 -> 1M
+ *
+ * @return
+ */
+val Int.shortenString: String
     get() {
         var value = this
         val arr = arrayOf("", "K", "M", "B", "T", "P", "E")

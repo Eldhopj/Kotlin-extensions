@@ -43,7 +43,7 @@ val String?.capitalizeEachWord
 /**
  * Converts the seconds to Hours, Minutes & Seconds pattern.
  *
- * E.g., 1hr 2min 30s
+ * E.g., 1h 2m 30s
  *
  * @param pattern Default Pattern is %dh %dm %ds.
  *
@@ -57,12 +57,12 @@ fun String?.toHourMinuteSeconds(pattern: String = "%dh %dm %ds"): String {
 /**
  * Converts the seconds to Hours, Minutes pattern.
  *
- * E.g., 1hr 2min.
+ * E.g., 1h 2m.
  *
  * @param pattern Default Pattern is %dhr %dmin.
  * @return String in Hours, Minutes pattern
  */
-fun String?.toHourMinute(pattern: String = "%dhr %dmin"): String {
+fun String?.toHourMinute(pattern: String = "%dh %dm"): String {
     if (this == null) return ""
     return convertToHourMinute(this, pattern)
 }

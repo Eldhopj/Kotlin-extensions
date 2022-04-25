@@ -4,12 +4,35 @@ import java.math.BigDecimal
 import java.util.Locale
 import java.util.regex.Pattern
 
+/**
+ * Support Util class
+ *
+ * @constructor Create empty Utils
+ */
 object Utils {
+    /**
+     * Name Pattern Regex
+     */
     internal const val NAME_PATTERN_REGEX = "^[\\p{L} .'-]+$"
+
+    /**
+     * Thousand
+     */
     internal const val THOUSAND = 1000
+
+    /**
+     * Seconds In Hour
+     */
     private const val SECONDS_IN_HOUR = 3600
+
+    /**
+     * Minutes In Hour
+     */
     private const val MINUTES_IN_HOUR = 60
 
+    /**
+     * Email Address
+     */
     internal val EMAIL_ADDRESS = Pattern.compile(
         "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
                 "\\@" +

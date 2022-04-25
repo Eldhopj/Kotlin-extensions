@@ -36,24 +36,26 @@ Usage
 - .**isValidEmail** -> Checks whether the email is valid, returns true if valid else false
 - .**isValidName** -> Checks whether the name is valid, returns true if valid else false
 - .**capitalizeEachWord** -> Capitalize each word
- * eg: hello world -> Hello World
+ 	* eg: hello world -> Hello World
 -  .**toHourMinuteSeconds** ->  * Converts the seconds to Hours, Minutes & Seconds as per your pattern.
+
 		Default pattern is %dh %dm %ds.
- * eg: 1h 2m 30s
--  .**toHourMinuteSeconds** ->  * Converts the seconds to Minutes & Seconds as per your pattern.
+ 	* eg: 1h 2m 30s
+-  .**toHourMinuteSeconds** ->  Converts the seconds to Minutes & Seconds as per your pattern.
+
 		Default pattern is %dm %ds.
- * eg: 1hr 2m
+ 	* eg: 1hr 2m
 
 ## **Number Extenstions**
 
 - .**shortenString** ->   Format number into short values.
- * eg: 1000 -> 1k
- * 1000000 -> 1M
+	 * eg: 1000 -> 1k
+	 * 1000000 -> 1M
 - .**format** ->  Returns the string representation of the decimal values
+
 	 	Pattern : defaut its 0.##, u can pass any desired pattern
-		 RoundingMode: default its RoundingMode.HALF_EVEN
- * eg: 10.02542 -> 10.03
- 
+		RoundingMode: default its RoundingMode.HALF_EVEN
+	 * eg: 10.02542 -> 10.03
  
  ## **Date Extenstions**
  

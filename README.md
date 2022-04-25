@@ -21,7 +21,9 @@ allprojects {
 ```
 dependency to your module `build.gradle` file
 ```gradle
-dependencies { implementation 'com.github.Eldhopj:kotlin-extensions:1.0' }
+dependencies { 
+	implementation 'com.github.Eldhopj:kotlin-extensions:1.0'
+}
 ```
 
 For info on using in the maven and others, see the [jitpack][1] docs page.

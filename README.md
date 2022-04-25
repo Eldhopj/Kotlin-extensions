@@ -2,6 +2,7 @@ Kotlin-Extenstions
 =====
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/29fc318009654c17a6cfafcc1ff37b04)](https://www.codacy.com/gh/Eldhopj/kotlin-extensions/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Eldhopj/kotlin-extensions&amp;utm_campaign=Badge_Grade)
+[![](https://jitpack.io/v/Eldhopj/kotlin-extensions.svg)](https://jitpack.io/#Eldhopj/kotlin-extensions)
 
 This library contains essential Kotlin language extenstions which we use in daily projects
 

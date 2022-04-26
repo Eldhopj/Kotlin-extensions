@@ -9,11 +9,7 @@ import java.util.regex.Pattern
  *
  * @constructor Create empty Utils
  */
-object Utils {
-    /**
-     * Name Pattern Regex
-     */
-    internal const val NAME_PATTERN_REGEX = "^[\\p{L} .'-]+$"
+internal object Utils {
 
     /**
      * Thousand
@@ -33,15 +29,45 @@ object Utils {
     /**
      * Email Address
      */
-    internal val EMAIL_ADDRESS = Pattern.compile(
-        "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
-                "\\@" +
-                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-                "(" +
-                "\\." +
-                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                ")+"
-    )
+    internal val EMAIL_ADDRESS: Pattern by lazy {
+        Pattern.compile(
+            "[a-zA-Z0-9+._%\\-]{1,256}" +
+                    "@" +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                    "(" +
+                    "\\." +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                    ")+"
+        )
+    }
+
+    /**
+     * Name Pattern Regex
+     */
+    internal val NAME_PATTERN_REGEX by lazy { Pattern.compile("^[\\p{L} .']+$") }
+
+    /**
+     * This pattern is intended for searching for things that look like they
+     * might be phone numbers in arbitrary text, not for validating whether
+     * something is in fact a phone number.  It will miss many things that
+     * are legitimate phone numbers.
+     *
+     *
+     *  The pattern matches the following:
+     *
+     *  * Optionally, a + sign followed immediately by one or more digits. Spaces, dots, or dashes may follow.
+     *  * Optionally, sets of digits in parentheses, separated by spaces, dots, or dashes.
+     *  * A string starting and ending with a digit, containing digits, spaces, dots, and/or dashes.
+     *
+     */
+    internal val PHONE_REGEX: Pattern by lazy {
+        Pattern.compile( // sdd = space, dot, or dash
+            "(\\+[0-9]+[\\- .]*)?" // +<digits><sdd>*
+                    + "(\\([0-9]+\\)[\\- .]*)?" // (<digits>)<sdd>*
+                    + "([0-9][0-9\\- .]+[0-9])" // <digit><digit|sdd>+<digit>
+        )
+    }
+
 
     /**
      * Converts duration in seconds to hours, minutes & seconds.

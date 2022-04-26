@@ -13,16 +13,16 @@ How To
 Add it in your `root build.gradle` at the end of repositories:
 ```gradle
 allprojects {
-	repositories {
-		...
-		maven { url 'https://jitpack.io' }
-	}
+    repositories {
+	    ...
+	    maven { url 'https://jitpack.io' }
+    }
 }
 ```
 dependency to your module `build.gradle` file
 ```gradle
-dependencies { 
-	implementation 'com.github.Eldhopj:kotlin-extensions:1.0'
+dependencies {
+    implementation 'com.github.Eldhopj:kotlin-extensions:1.1'
 }
 ```
 
@@ -35,32 +35,48 @@ Usage
 
 - .**isValidEmail** -> Checks whether the email is valid, returns true if valid else false
 - .**isValidName** -> Checks whether the name is valid, returns true if valid else false
+- .**isValidPhoneNumber** -> Checks whether the phone number is valid, returns true if valid else false
 - .**capitalizeEachWord** -> Capitalize each word
  	* eg: hello world -> Hello World
--  .**toHourMinuteSeconds** ->  * Converts the seconds to Hours, Minutes & Seconds as per your pattern.
 
-		Default pattern is %dh %dm %ds.
+- .**checkRegex** ->  Checks the regex pattern is valid, returns true if valid else false
+
+		Parameters
+		1.pattern -> regex pattern.
+- .**toHourMinuteSeconds** ->  Converts the seconds to Hours, Minutes & Seconds as per your pattern.
+
+		Parameters
+		1.pattern -> in which pattern we have to convert. Default Pattern is %dh %dm %ds.
  	* eg: 1h 2m 30s
--  .**toHourMinuteSeconds** ->  Converts the seconds to Minutes & Seconds as per your pattern.
+- .**toHourMinute** ->  Converts the seconds to Minutes & Seconds as per your pattern.
 
-		Default pattern is %dm %ds.
+		Parameters
+		1.pattern -> in which pattern we have to convert. Default Pattern is %dm %ds.
  	* eg: 1hr 2m
+
+Please go thorugh the [String Extenstions][3] code documentation for more information
 
 ## **Number Extenstions**
 
 - .**shortenString** ->   Format number into short values.
 	 * eg: 1000 -> 1k
-	 * 1000000 -> 1M
+	 *     1000000 -> 1M
 - .**format** ->  Returns the string representation of the decimal values
 
-	 	Pattern : defaut its 0.##, u can pass any desired pattern
-		RoundingMode: default its RoundingMode.HALF_EVEN
+		Parameters
+		1.pattern -> in which pattern we have to convert. Default Pattern is 0.##.
+		2.roundingMode -> set the rounding behavour, default behavour is RoundingMode.HALF_EVEN
 	 * eg: 10.02542 -> 10.03
- 
+- .**isNullOrZero** -> Returns true if this number is null or zero (0)
+
+Please go thorugh the [Number Extenstions][4] code documentation for more information
+
  ## **Date Extenstions**
- 
+
 Please go thorugh the [Date Extension][2] code documentation
 
 
 [1]: https://jitpack.io/#Eldhopj/kotlin-extensions/Tag
 [2]: https://github.com/Eldhopj/kotlin-extensions/blob/master/Kotlin_extensions/src/main/java/com/eldhopj/kotlin_extensions/DateExtension.kt "Date Extension"
+[3]: https://github.com/Eldhopj/kotlin-extensions/blob/master/Kotlin_extensions/src/main/java/com/eldhopj/kotlin_extensions/StringExtensions.kt "String Extenstions"
+[4]: https://github.com/Eldhopj/kotlin-extensions/blob/master/Kotlin_extensions/src/main/java/com/eldhopj/kotlin_extensions/NumberExtension.kt "Number Extenstions"

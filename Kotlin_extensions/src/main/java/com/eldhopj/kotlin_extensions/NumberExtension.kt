@@ -6,6 +6,7 @@ import java.text.DecimalFormat
 
 /**
  * Returns the string representation of the value using [DecimalFormat]
+ * eg: 10.02542 -> 10.03
  *
  * @param pattern pattern conversion pattern for [DecimalFormat]
  * @param roundingMode Specifies the rounding behavior for operations whose results cannot be
@@ -25,6 +26,7 @@ fun Double?.format(
 
 /**
  * Returns the string representation of the value using [DecimalFormat]
+ * eg: 10.02542 -> 10.03
  *
  * @param pattern pattern conversion pattern for [DecimalFormat]
  * @param roundingMode Specifies the rounding behavior for operations whose results cannot be
@@ -50,18 +52,17 @@ fun Float?.format(
  *
  * @return
  */
-val Long.shortenString: String
-    get() {
-        var value = this
-        val arr = arrayOf("", "K", "M", "B", "T", "P", "E")
-        var index = 0
-        while (value / THOUSAND >= 1) {
-            value /= THOUSAND
-            index++
-        }
-        val decimalFormat = DecimalFormat("#.##")
-        return String.format("%s %s", decimalFormat.format(value), arr[index])
+fun Long.getShortenString(): String {
+    var value = this
+    val arr = arrayOf("", "K", "M", "B", "T", "P", "E")
+    var index = 0
+    while (value / THOUSAND >= 1) {
+        value /= THOUSAND
+        index++
     }
+    val decimalFormat = DecimalFormat("#.##")
+    return String.format("%s %s", decimalFormat.format(value), arr[index])
+}
 
 /**
  * Format number into Short values
@@ -71,15 +72,19 @@ val Long.shortenString: String
  *
  * @return
  */
-val Int.shortenString: String
-    get() {
-        var value = this
-        val arr = arrayOf("", "K", "M", "B", "T", "P", "E")
-        var index = 0
-        while (value / THOUSAND >= 1) {
-            value /= THOUSAND
-            index++
-        }
-        val decimalFormat = DecimalFormat("#.##")
-        return String.format("%s %s", decimalFormat.format(value), arr[index])
+fun Int.getShortenString(): String {
+    var value = this
+    val arr = arrayOf("", "K", "M", "B", "T", "P", "E")
+    var index = 0
+    while (value / THOUSAND >= 1) {
+        value /= THOUSAND
+        index++
     }
+    val decimalFormat = DecimalFormat("#.##")
+    return String.format("%s %s", decimalFormat.format(value), arr[index])
+}
+
+/**
+ * Returns true if this number is null or zero (0)
+ */
+fun Number?.isNullOrZero(): Boolean = this == null || this == 0

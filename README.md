@@ -22,7 +22,7 @@ allprojects {
 dependency to your module `build.gradle` file
 ```gradle
 dependencies {
-    implementation 'com.github.Eldhopj:kotlin-extensions:1.1'
+    implementation 'com.github.Eldhopj:kotlin-extensions:1.2'
 }
 ```
 

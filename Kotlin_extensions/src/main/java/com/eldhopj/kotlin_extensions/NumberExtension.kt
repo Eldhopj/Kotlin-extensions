@@ -61,7 +61,7 @@ fun Long.getShortenString(): String {
         index++
     }
     val decimalFormat = DecimalFormat("#.##")
-    return String.format("%s %s", decimalFormat.format(value), arr[index])
+    return "${decimalFormat.format(value)}${arr[index]}"
 }
 
 /**
@@ -81,7 +81,7 @@ fun Int.getShortenString(): String {
         index++
     }
     val decimalFormat = DecimalFormat("#.##")
-    return String.format("%s %s", decimalFormat.format(value), arr[index])
+    return "${decimalFormat.format(value)}${arr[index]}"
 }
 
 /**

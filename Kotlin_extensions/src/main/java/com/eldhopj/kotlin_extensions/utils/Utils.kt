@@ -9,12 +9,12 @@ import java.util.regex.Pattern
  *
  * @constructor Create empty Utils
  */
-internal object Utils {
+object Utils {
 
     /**
      * Thousand
      */
-    internal const val THOUSAND = 1000
+    const val THOUSAND = 1000
 
     /**
      * Seconds In Hour
